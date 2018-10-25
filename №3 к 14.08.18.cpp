@@ -2,8 +2,8 @@
 using namespace std;
 
 int main() {
-    int x;
-    int h = 2; // т.к. ноль мы не берем в расчет, и ноль не несет в себе ничего мы h берем на 1 больше
+    double y,x;
+    int h = 2;
     cin >> x;
     if (x == 0)
     {
@@ -16,9 +16,13 @@ int main() {
         sum += x;
         ++h;
     }
-
-    cout <<  sum / h;
+    y=sum%h;
+    if(y!=0)
+    {
+        cout<<sum/h<<"and"<<"("<<y<<"/"<<h<<")";
+    }
+    else
+    cout << sum / h;
 
     return 0;
 }
-
