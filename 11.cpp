@@ -3,60 +3,69 @@ using namespace std;
 
 struct ray
 {
-int n;
-int * A;
-ray(int a) : n(a), A(new int[a])
+  int n;
+  int * A;
+   ray(int a) : n(a), A(new int[a])
 {}
 
-ray(const ray & c)
+   ray(const ray & c)
 {
-n = c.n;
-A = new int[n];
-for (int i = 0; i < n; i++)
-{
-A[i] = c.A[i];
-}
+   n = c.n;
+   A = new int[n];
+   for (int i = 0; i < n; i++)
+   {
+    A[i] = c.A[i];
+   }
 }
 
-ray& operator=(ray c)
+ ray& operator=(ray c)
 {
-A = new int[n];
-for (int i = 0; i < n; i++)
-{
-A[i] = c.A[i];
-}
+  A = new int[n];
+  for (int i = 0; i < n; i++)
+  {
+   A[i] = c.A[i];
+  }
 }
 
 void max_min()
 {
-int v = A[0];
-int c, d, e;
-d = 0;
-e = v;
-c = 0;
-for(int i = 1; i < n; i++){
-if(A[i] > v){
-v = A[i];
+ int v = A[0];
+ int c, d, e;
+ d = 0;
+ e = v;
+ c = 0;
+ for(int i = 1; i < n; i++)
+ {
+  if(A[i] > v)
+  {
+   v = A[i];
+  }
+  if(A[i] < e)
+  {
+   e = A[i];
+  }
 }
-if(A[i] < e){
-e = A[i];
+if(v == e)
+{
+ delete[]A;
+ A = new int[0];
+ n = 0;
+}
+for(int i = 0; i < n; i++)
+{
+if(A[i] == v)
+{
+ c = i;
+}
+if(A[i] == e)
+{
+ d = i;
 }
 }
-if(v == e){
-delete[]A;
-A = new int[0];
-n = 0;
-}
-for(int i = 0; i < n; i++){
-if(A[i] == v){
-c = i;
-}
-if(A[i] == e){
-d = i;
-}
-}
-for(int i = 0; i < n; i++){
-if((A[i] == v) && (i != c)){
+for(int i = 0; i < n; i++)
+{
+if((A[i] == v) && (i != c))
+{
 delete A;
 n = n - 1;
 
