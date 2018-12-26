@@ -28,7 +28,7 @@ double FF(double (*f)(double), double a, double b, double a, double eps)
     }
     return c;
 }
-int main() // yp-e cos(sin(x)) - sqrt(3)/2 = 0
+int main() 
 {
     double a,b,eps,x;
     
